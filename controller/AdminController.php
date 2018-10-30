@@ -150,9 +150,10 @@ class AdminController{
 			config('redirect_uri',$_POST['redirect_uri']);
 			return view::direct('?step=2');
 		}
-		//if($_SERVER['HTTP_HOST'] == 'localhost'){
-		//	$redirect_uri = 'http://'.$_SERVER['HTTP_HOST'].get_absolute_path(dirname($_SERVER['PHP_SELF']));
-		//}else{
+		if($_SERVER['HTTP_HOST'] == 'localhost'){
+			$redirect_uri = 'http://'.$_SERVER['HTTP_HOST'].get_absolute_path(dirname($_SERVER['PHP_SELF']));
+		}
+		//else{
 			// 非https,调用ju.tn中转
 		//	$redirect_uri = 'https://ju.tn/';
 		//}
